@@ -1,0 +1,21 @@
+* {
+    box-sizing: border-box;
+}
+
+header {
+    text-align: center;
+}
+.container {
+    max-width: 800px;
+}
+
+#results {
+    display: block;
+    height: 800px;
+    width: 100%;
+}
+
+.info {
+    width: 80%;
+    height: 100%;
+}
