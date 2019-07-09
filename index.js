@@ -21,7 +21,7 @@ function getDoctors(URL, name, condition, locationCity, locationState, apiKey){
        
         name,
         query: condition,
-        location: `${locationState}-${locationCity.toLowerCase()}`,
+        location: `${locationState}-${locationCity.toLowerCase().replace(/ /g, "-")}`,
         skip: 0,
         limit: 20,
         user_key: apiKey
@@ -33,7 +33,6 @@ function getDoctors(URL, name, condition, locationCity, locationState, apiKey){
     console.log(queryString)
     
     const searchURL = `${URL}?${queryString}`
-    // const searchURL =  URL + '?' + name + '&query=' + condition + '&location='+ locationState + '-' + '&20'+ locationCity + '&skip=0&limit=20&user_key=' + apiKey
     console.log(searchURL)
     fetch(searchURL)
     .then(response => {
@@ -47,6 +46,10 @@ function getDoctors(URL, name, condition, locationCity, locationState, apiKey){
     .catch(err => {
         $('#js-error-message').text(`Something went wrong: ${err.message}`)
     })
+  
+
+    
+
 
 }
 
@@ -71,7 +74,7 @@ function displayResults(responseJson){
         if(!website){
             website = 'No website available'
         }
-
+       
 
         $('#results').append(
             `<div class="info">
