@@ -55,7 +55,7 @@ function getDoctors(URL, name, condition, locationCity, locationState, apiKey){
 
 function displayResults(responseJson){
     console.log(responseJson);
-    $('#results').empty();
+    $('section').empty();
     for(let i = 0; i < responseJson.data.length; i++){
         const firstName = responseJson.data[i].profile.first_name;
         const lastName = responseJson.data[i].profile.last_name;
@@ -65,7 +65,7 @@ function displayResults(responseJson){
         const state = responseJson.data[i].practices[0].visit_address.state;
         const zipCode = responseJson.data[i].practices[0].visit_address.zip;
         const phone = responseJson.data[i].practices[0].phones[0].number;
-        const insurance = responseJson.data[i].insurances[i].insurance_plan.name;
+        const insurance = responseJson.data[i].insurances[1].insurance_plan.name;
         const specialty = responseJson.data[i].specialties[0].actor;
         const bio = responseJson.data[i].profile.bio;
         let website = responseJson.data[i].practices.website;
@@ -77,18 +77,23 @@ function displayResults(responseJson){
        
 
         $('#results').append(
-            `<div class="info">
-                <p><span class="bold">Name:</span> ${firstName} ${lastName}</p>
-                <p><span class="bold">Address:</span> ${street}, ${city}, ${state} ${zipCode}</p>
-                <p><span class="bold">Accept new patients:</span> ${newPatient}</p>
-                <p><span class="bold">Phone number:</span> ${phone}</p>
-                <p><span class="bold">Website:</span> ${website}</p>
-                <p><span class="bold">Insurance accepted:</span> ${insurance}</p>
-                <p><span class="bold">Specialty:</span> ${specialty}</p>
-                <p><span class="bold">About Dr. ${firstName} ${lastName}:</span> ${bio}</p>
-                <img src="${img}">
-
-            </div>`
+            `<section class="provider-list">
+                
+                    <div id="MD-card">
+                        <div class="primary-info">
+                            <div class="provider-image">
+                                <img src="${img}">
+                            </div>
+                            <p><span class="bold">Dr.</span> ${firstName} ${lastName}</p>
+                            <p><span class="bold">Address:</span> ${street}, ${city}, ${state} ${zipCode}</p>
+                            <p><span class="bold">Accept new patients:</span> ${newPatient}</p>
+                            <p><span class="bold">Phone number:</span> ${phone}</p>
+                            <p><span class="bold">Website:</span> ${website}</p>
+                            <p><span class="bold">Insurance accepted:</span> ${insurance}</p>
+                            <p><span class="bold">Specialty:</span> ${specialty}</p>
+                        </div>
+                    </div>
+            </section>`
         )
 
         // $('#results').append(
@@ -98,9 +103,17 @@ function displayResults(responseJson){
     }
 }
 
+
+
+
+
+
 function watchForm(){
+   
     $('#js-form-submit').submit(event => {
         event.preventDefault();
+
+
 
         const name = $('#doctor-name').val();
         const condition = $('#medical-issue').val();
@@ -110,6 +123,9 @@ function watchForm(){
 
         getDoctors(URL, name, condition, locationCity, locationState, apiKey)
     })
+
+ 
+   
 
 }
 $(watchForm);
