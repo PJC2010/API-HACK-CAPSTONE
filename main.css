@@ -22,15 +22,21 @@ body {
     
 }
 .banner  {
-    background-color: rgba(198, 198, 198, 0.8);    
+    background: linear-gradient(rgba(45, 45, 53, 0.65),rgba(33, 32, 40, 0.65) );
     text-align: center;
     top: 20px;
     position: relative;
     /* max-height: 80%; */
     font-size: 20px;
-    color: #0D0A0B;
+    color: white;
     
     
+    
+}
+
+h1 h3 {
+    font-family: 'Noto Sans JP', sans-serif;
+    font-weight: bolder;
 }
 
 
@@ -49,7 +55,55 @@ body {
     align-items: center;
 }
 
+#js-form-submit {
+    width: 50%;
+}
+
+
+
 .wrapper {
+    text-align: center;
+    margin: 50px auto;
+}
+
+.wrapper li {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-bottom: 50px;
+    
+}
+
+.wrapper > li {
+    flex: 1 0 120px;
+}
+
+.wrapper li input[type='text']  {
+    padding: 17px;
+    flex: 1 0 220px;
+}
+
+#location-state {
+    flex: 1 0 220px;
+    
+    
+}
+
+#submit-button {
+    display: block;
+    margin: 50px auto;
+    padding: 20px 50px;
+}
+
+
+
+
+
+
+
+
+
+/* .wrapper {
     list-style: none;
     padding: 0;
     border-radius: 3px;
@@ -70,13 +124,7 @@ body {
     padding: .5em;
 }
 
-#js-form-submit {
-    align-items: center;
-    margin-top: 30px;
-    height: 50%;
-    
-    justify-content: space-evenly;
-}
+
 
 
 
@@ -94,25 +142,25 @@ body {
 }
 
 
-input  {
+/* input  {
     
     border-bottom: 3px solid ghostwhite;
     border-radius: 0px;
     padding: 8px 20px;
     width: 100%;
     
-}
+} */
 
-select {
+/* select {
     width: 100%;
     height: 50px;
-}
+} */
 
-#submit-button {
+/* #submit-button {
     width: 500px;
     height: 50px;
     cursor: pointer;
-} 
+}  */
 
 .primary-info {
     border: 5px double black;
