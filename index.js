@@ -51,7 +51,9 @@ function getDoctors(URL, name, condition, locationCity, locationState, apiKey){
     
 
 
-}
+};
+
+
 
 function displayResults(responseJson){
     console.log(responseJson);
@@ -65,15 +67,17 @@ function displayResults(responseJson){
         const state = responseJson.data[i].practices[0].visit_address.state;
         const zipCode = responseJson.data[i].practices[0].visit_address.zip;
         const phone = responseJson.data[i].practices[0].phones[0].number;
-        const insurance = responseJson.data[i].insurances[1].insurance_plan.name;
+        const insurance = responseJson.data[i].insurances[2].insurance_plan.name;
         const specialty = responseJson.data[i].specialties[0].actor;
-        const bio = responseJson.data[i].profile.bio;
+        
         let website = responseJson.data[i].practices.website;
         let newPatient = (responseJson.data[i].practices[0].accepts_new_patients? "Yes": "No");
 
         if(!website){
             website = 'No website available'
         }
+
+        
        
 
         $('#results').append(
@@ -96,10 +100,7 @@ function displayResults(responseJson){
             </section>`
         )
 
-        // $('#results').append(
-        //     `Name: ${responseJson.data[i].profile.first_name} ${responseJson.data[i].profile.last_name}
-        //     <p></p>`
-        // )
+
     }
 }
 
