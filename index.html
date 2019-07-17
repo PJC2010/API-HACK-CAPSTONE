@@ -12,23 +12,16 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 </head>
 <body>
-   
-    
-
     <main class="container">
             <div class="banner">
-                <h1>Find a doctor in your area.</h1>
-                <h3>Search for a doctor near you by medical condition, name, and city and state.</h3>
-            </div>
+                    <h1>Find a Doc!</h1>
+                    <h3>Find a doctor by entering your location and search by doctor name or medical condition. </h3>
+                </div>
+
             <form id="js-form-submit">
                 
                 <ul class="wrapper">
-                    <li class="row">
-                        <input type="text" id="medical-issue" placeholder="What's bothering you? E.g: Asthma, Common cold, toothache..">
-                    </li>
-                    <li class="row">
-                        <input type="text" id="doctor-name" placeholder="Search by doctor name.">
-                    </li>
+
                     <li class="row">
                         <select id="location-state" name="location">
                             <option value="">Select a state</option>
@@ -89,7 +82,13 @@
                     <input type="text" id="location-city" placeholder="Enter a city. E.g: Houston, Los Angeles, Denver, etc..">
                 </li>
                 <li class="row">
-                    <button type="submit" id="submit-button" name="button"><a id="link" href="#"></a>Search</button>
+                        <input type="text" id="medical-issue" placeholder="What's bothering you? E.g: Asthma, Common cold, toothache..">
+                    </li>
+                    <li class="row">
+                        <input type="text" id="doctor-name" placeholder="Search by doctor name.">
+                    </li>
+                <li class="row">
+                    <button type="submit" id="submit-button" name="button">Search</button>
                 </li>
                 </ul>
             </form>

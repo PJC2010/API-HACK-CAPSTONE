@@ -103,6 +103,12 @@ function displayResults(responseJson){
     }
 }
 
+$("#submit-button").click(function() {
+    $('html, body').animate({
+        scrollTop: $("#results").offset().top
+    }, 4000);
+});
+
 
 
 
@@ -123,9 +129,5 @@ function watchForm(){
 
         getDoctors(URL, name, condition, locationCity, locationState, apiKey)
     })
-
- 
-   
-
 }
 $(watchForm);
