@@ -41,11 +41,14 @@ function getDoctors(URL, name, condition, locationCity, locationState, apiKey){
         }
         throw new Error(response.statusText)
     })
+
     .then
     (responseJson => displayResults(responseJson))
     .catch(err => {
+        
         $('#js-error-message').text(`Something went wrong: ${err.message}`)
     })
+    
   
 
     
@@ -57,7 +60,8 @@ function getDoctors(URL, name, condition, locationCity, locationState, apiKey){
 
 function displayResults(responseJson){
     console.log(responseJson);
-    $('section').empty();
+    if(responseJson.data.length > 0){
+    
     for(let i = 0; i < responseJson.data.length; i++){
         const firstName = responseJson.data[i].profile.first_name;
         const lastName = responseJson.data[i].profile.last_name;
@@ -79,7 +83,7 @@ function displayResults(responseJson){
 
         
        
-
+        
         $('#results').append(
             `<section class="provider-list">
                 
@@ -100,8 +104,24 @@ function displayResults(responseJson){
             </section>`
         )
 
+        
+
 
     }
+    }else {
+        showFailScreen(responseJson)
+    }
+}
+
+function showFailScreen(){
+        $('#results').append(
+            `<section class="fail-screen">
+            <div class="fail-text">
+            <p>No results found. Please try again.</p>
+            </div>
+            </section>`
+        )
+    
 }
 
 $("#submit-button").click(function() {
@@ -116,9 +136,11 @@ $("#submit-button").click(function() {
 
 
 function watchForm(){
+    
    
     $('#js-form-submit').submit(event => {
         event.preventDefault();
+        $('#results').empty();
 
 
 

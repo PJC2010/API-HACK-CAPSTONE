@@ -10,6 +10,7 @@
 
 html {
     height: 100%;
+    overflow: hidden;
 
 
 }
@@ -18,11 +19,16 @@ body {
     margin: 0 auto;
     padding: 0;
     background:#E1E1E1;
+    overflow: auto;
 
     
 }
 .fail-screen {
-    display: none;
+    display: block;
+    text-align: center;
+    font-family: 'Russo One', sans-serif;
+    height: 100vh;
+    font-size: 50px;
 }
 
 
@@ -49,7 +55,7 @@ h1 h3 {
     background-position: 80% 0%;
     background-attachment: scroll;
     margin: 0;
-    position: rel;
+    position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -58,14 +64,14 @@ h1 h3 {
 #js-form-submit {
     width: 60%;
     text-align: center;
-    height: 50%;
+    height: 70%;
 }
 
 
 
 .wrapper {
     text-align: center;
-    margin-top: 100px;
+    margin: 0;
     padding: 0;
     height: 100%;
     display: flex;
@@ -83,9 +89,11 @@ h1 h3 {
     
 }
 
-.wrapper > li {
-    flex: 1 0 120px;
+input {
+    margin-bottom: 10px;
 }
+
+
 
 .wrapper li input[type='text']  {
     padding: 17px;
@@ -127,6 +135,12 @@ span {
 }
 
 @media only screen and (max-width: 600px){
+    .container{
+        height: 100vh;
+    }
+    .row {
+
+    }
 
 }
 
@@ -136,7 +150,10 @@ span {
 
 @media only screen and (min-width: 768px){
     .wrapper {
-        margin: 150px auto;
+        
+    }
+    .container {
+        height: 100vh;
     }
 }
 
