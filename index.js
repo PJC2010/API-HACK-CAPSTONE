@@ -10,7 +10,7 @@ function formatQueryParams(params){
     const queryItems = Object.keys(params).map(key => `${encodeURIComponent(key)}=${encodeURIComponent(params[key])}`)
     return queryItems.join('&')
 
-}
+};
 
 
 
@@ -28,7 +28,8 @@ function getDoctors(URL, name, condition, locationCity, locationState, apiKey){
         
         
         
-    }
+    };
+
     const queryString = formatQueryParams(params)
     console.log(queryString)
     
@@ -79,11 +80,11 @@ function displayResults(responseJson){
 
         if(!website){
             website = 'No website available'
-        }
+        };
 
         if(insurance.length === 0){
             insurance = 'No information available'
-        }
+        };
 
         
        
@@ -111,11 +112,12 @@ function displayResults(responseJson){
         
 
 
-    }
+    };
+
     }else {
         showFailScreen(responseJson)
-    }
-}
+    };
+};
 
 function showFailScreen(){
         $('#results').append(
@@ -126,7 +128,7 @@ function showFailScreen(){
             </section>`
         )
     
-}
+};
 
 $("#submit-button").click(function() {
     $('html, body').animate({
@@ -156,5 +158,5 @@ function watchForm(){
 
         getDoctors(URL, name, condition, locationCity, locationState, apiKey)
     })
-}
+};
 $(watchForm);

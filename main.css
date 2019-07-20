@@ -150,9 +150,7 @@ span {
 }
 
 @media only screen and (min-width: 768px){
-    .wrapper {
-        
-    }
+   
     .container {
         height: 100vh;
     }
