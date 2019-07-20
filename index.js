@@ -71,7 +71,7 @@ function displayResults(responseJson){
         const state = responseJson.data[i].practices[0].visit_address.state;
         const zipCode = responseJson.data[i].practices[0].visit_address.zip;
         const phone = responseJson.data[i].practices[0].phones[0].number;
-        const insurance = responseJson.data[i].insurances[2].insurance_plan.name;
+        const insurance = responseJson.data[0].insurances[0].insurance_plan.name;
         const specialty = responseJson.data[i].specialties[0].actor;
         
         let website = responseJson.data[i].practices.website;
@@ -79,6 +79,10 @@ function displayResults(responseJson){
 
         if(!website){
             website = 'No website available'
+        }
+
+        if(insurance.length === 0){
+            insurance = 'No information available'
         }
 
         
