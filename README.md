@@ -1,3 +1,8 @@
-# API-HACK-CAPSTONE
+# Find-A-Doc.io
 
-## Used BetterDoctor API
+
+## Purpose
+I wanted to create a web app that would allow users to search for medical providers in their area or any other city in the US.
+
+## Screenshots
+
