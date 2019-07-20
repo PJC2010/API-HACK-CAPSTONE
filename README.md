@@ -13,3 +13,19 @@ Or
 
 User may search for provider by state, city, and doctor name(first or last).
 ![demo2](demostatecitynamesearch.gif)
+
+If user enters invalid information or no information is found, app will return a 'No results found message' to user.
+![noresultsfound](noresultsfound.gif)
+
+
+## Technologies used 
+<ul>
+  <li>HTML5</li>
+  <li>CSS3</li>
+  <li>Javascript</li>
+  <li>jQuery</li>
+  <li><a href="https://developer.betterdoctor.com/">betterdoctor api</a></li>
+</ul>
+
+## Authors
+Pete Castillo
