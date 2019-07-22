@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Dr Search API</title>
+    <title>Find A Doc! API</title>
     <link href="main.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Heebo&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Russo+One&display=swap" rel="stylesheet">
@@ -15,14 +15,15 @@
     <main class="container">
             <div class="banner">
                     <h1>Find a Doc!</h1>
-                    <h3>Find a doctor by entering your location and search by doctor name or medical condition. </h3>
+                    <h3>Find a doctor by entering a location or medical issue.</h3>
                 </div>
 
             <form id="js-form-submit">
                 
                 <ul class="wrapper">
-                    <li class="row">
-                        <select id="location-state" name="location">
+                    <li class="row-state">
+                        
+                        <select id="location-state" name="location" required>
                             <option value="">Select a state</option>
                             <option value="al">Alabama</option>
                             <option value="ak">Alaska</option>
@@ -77,14 +78,13 @@
                             <option value="wy">Wyoming</option>
                         </select>
                     </li>
-                <li class="row">                    
-                    <input type="text" id="location-city" placeholder="Enter a city. E.g: Houston, Los Angeles, Denver, etc..">
+                <li class="row-city"> 
+                                      
+                    <input type="text" id="location-city"  required placeholder="Enter a city. E.g: Houston, Los Angeles, Denver, etc..">
                 </li>
-                <li class="row">
+                <li class="row-condition">
+                    
                         <input type="text" id="medical-issue" placeholder="What's bothering you? E.g: Asthma, Common cold, toothache..">
-                    </li>
-                    <li class="row">
-                        <input type="text" id="doctor-name" placeholder="Search by doctor name.">
                     </li>
                 <li class="row">
                     <button type="submit" id="submit-button" name="button">Search</button>
@@ -105,4 +105,5 @@
     
     <script src="index.js" ></script>
 </body>
+
 </html>

@@ -59,12 +59,17 @@ h1 h3 {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
+    
+
 }
 
 #js-form-submit {
     width: 60%;
     text-align: center;
     height: 70%;
+    
+    
 }
 
 
@@ -93,6 +98,9 @@ h1 h3 {
 input {
     margin-bottom: 10px;
 }
+
+
+
 
 
 
@@ -134,6 +142,8 @@ span {
 .primary-info > img {
     float: right;
 }
+
+
 
 @media only screen and (max-width: 600px){
     .container{

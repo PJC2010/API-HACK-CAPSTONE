@@ -15,19 +15,14 @@ function formatQueryParams(params){
 
 
 
-function getDoctors(URL, name, condition, locationCity, locationState, apiKey){
+function getDoctors(URL, condition, locationCity, locationState, apiKey){
     
     const params = {
-       
-        name,
         query: condition,
         location: `${locationState}-${locationCity.toLowerCase().replace(/ /g, "-")}`,
         skip: 0,
         limit: 20,
         user_key: apiKey
-        
-        
-        
     };
 
     const queryString = formatQueryParams(params)
@@ -72,19 +67,18 @@ function displayResults(responseJson){
         const state = responseJson.data[i].practices[0].visit_address.state;
         const zipCode = responseJson.data[i].practices[0].visit_address.zip;
         const phone = responseJson.data[i].practices[0].phones[0].number;
-        const insurance = responseJson.data[0].insurances[0].insurance_plan.name;
+        
         const specialty = responseJson.data[i].specialties[0].actor;
         
-        let website = responseJson.data[i].practices.website;
+        
+        let website = responseJson.data[i].practices[0].website;
         let newPatient = (responseJson.data[i].practices[0].accepts_new_patients? "Yes": "No");
 
         if(!website){
             website = 'No website available'
         };
 
-        if(insurance.length === 0){
-            insurance = 'No information available'
-        };
+ 
 
         
        
@@ -101,9 +95,8 @@ function displayResults(responseJson){
                             <p><span class="bold">Address:</span> ${street}, ${city}, ${state} ${zipCode}</p>
                             <p><span class="bold">Accept new patients:</span> ${newPatient}</p>
                             <p><span class="bold">Phone number:</span> ${phone}</p>
-                            <p><span class="bold">Website:</span> ${website}</p>
-                            <p><span class="bold">Insurance accepted:</span> ${insurance}</p>
-                            <p><span class="bold">Specialty:</span> ${specialty}</p>
+                            <p><span class="bold">Website:</span> <a href="${website}">${website}</a></p>
+                            <p><span class="bold">Specialities:</span> ${specialty}</p>
                         </div>
                     </div>
             </section>`
@@ -146,17 +139,15 @@ function watchForm(){
    
     $('#js-form-submit').submit(event => {
         event.preventDefault();
+
         $('#results').empty();
 
-
-
-        const name = $('#doctor-name').val();
         const condition = $('#medical-issue').val();
         const locationState = $('#location-state').val();
         const locationCity = $('#location-city').val();
-        console.log(locationState, locationCity);
 
-        getDoctors(URL, name, condition, locationCity, locationState, apiKey)
+        console.log(locationState, locationCity);
+        getDoctors(URL, condition, locationCity, locationState, apiKey)
     })
 };
 $(watchForm);
