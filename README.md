@@ -6,16 +6,21 @@ I wanted to create a web app that would allow users to search for medical provid
 
 ## Demo
 
-User can search for provider by selecting a state, entering a city, and medical condition. 
-![demo1](demo1statecityconditionsearch.gif)
+User can search for provider by selecting a state and entering a city.
 
-Or
 
-User may search for provider by state, city, and doctor name(first or last).
-![demo2](demostatecitynamesearch.gif)
+
+![Cityandstatesearch](demogifs/CityStateSearchCapture.gif)
+
+**Or**
+
+User may search narrow for specific doctors by entering a medical issue such as cold, asthma, diarrhead, etc along with city and state. <br>
+
+
+![Conditionsearch](demogifs/ConditionCityStateSearchCapture.gif)
 
 If user enters invalid information or no information is found, app will return a 'No results found message' to user.
-![noresultsfound](noresultsfound.gif)
+![Noresultsfound](demogifs/NoResultsFoundCapture.gif)
 
 ### Link to live repo: https://pjc2010.github.io/API-HACK-CAPSTONE/
 
