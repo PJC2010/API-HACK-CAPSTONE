@@ -14,7 +14,7 @@ User can search for provider by selecting a state and entering a city.
 
 **Or**
 
-User may search narrow for specific doctors by entering a medical issue such as cold, asthma, diarrhead, etc along with city and state. <br>
+User may narrow search for specific doctors by entering a medical issue such as cold, asthma, diarrhead, etc along with city and state that will give users doctors in their area that specializes in that specific condition. <br>
 
 
 ![Conditionsearch](demogifs/ConditionCityStateSearchCapture.gif)
