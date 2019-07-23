@@ -142,6 +142,10 @@ span {
 .primary-info > img {
     float: right;
 }
+.bold {
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+}
 
 
 

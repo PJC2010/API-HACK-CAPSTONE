@@ -68,23 +68,23 @@ function displayResults(responseJson){
         const zipCode = responseJson.data[i].practices[0].visit_address.zip;
         const phone = responseJson.data[i].practices[0].phones[0].number;
         
-        let specialty = responseJson.data[i].specialties;
+        // let specialty = responseJson.data[i].specialties;
+        let specialty = responseJson.data[i].specialties.map(s => s.name).join(' | ')
         if(responseJson.data[i].specialties.length === 0){
             specialty = 'No specialty information available.'
         }else{
-            specialty = responseJson.data[i].specialties[0].actor
-        }
+            specialty 
+        };
 
-        
-        
-        
-        
-        let website = responseJson.data[i].practices[0].website;
-        let newPatient = (responseJson.data[i].practices[0].accepts_new_patients? "Yes": "No");
+        let website = responseJson.data[i].practices.map(s => s.website).join(' ');
 
         if(!website){
             website = 'No website available'
         };
+
+        let newPatient = (responseJson.data[i].practices[0].accepts_new_patients? "Yes": "No");
+
+        
 
         
 
@@ -105,7 +105,7 @@ function displayResults(responseJson){
                             <p><span class="bold">Address:</span> ${street}, ${city}, ${state} ${zipCode}</p>
                             <p><span class="bold">Accept new patients:</span> ${newPatient}</p>
                             <p><span class="bold">Phone number:</span> ${phone}</p>
-                            <p><span class="bold">Website:</span> <a href="${website}">${website}</a></p>
+                            <p><span class="bold">Website:</span> ${website}</p>
                             <p><span class="bold">Specialty:</span> ${specialty}</p>
                         </div>
                     </div>
