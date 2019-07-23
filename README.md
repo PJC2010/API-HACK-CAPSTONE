@@ -12,9 +12,11 @@ User can search for provider by selecting a state and entering a city.
 
 ![Cityandstatesearch](demogifs/CityStateSearchCapture.gif)
 
-And
+**Or**
 
-User may search narrow for specific doctors by entering a medical issue such as cold, asthma, diarrhead, etc along with city and state.
+User may search narrow for specific doctors by entering a medical issue such as cold, asthma, diarrhead, etc along with city and state. <br>
+
+
 ![Conditionsearch](demogifs/ConditionCityStateSearchCapture.gif)
 
 If user enters invalid information or no information is found, app will return a 'No results found message' to user.
