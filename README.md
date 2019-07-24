@@ -22,7 +22,7 @@ User may narrow search for specific doctors by entering a medical issue such as 
 If user enters invalid information or no information is found, app will return a 'No results found message' to user.
 ![Noresultsfound](demogifs/NoResultsFoundCapture.gif)
 
-### Link to live repo: https://pjc2010.github.io/API-HACK-CAPSTONE/
+### Link to live page: https://pjc2010.github.io/API-HACK-CAPSTONE/
 
 
 ## Technologies used 
