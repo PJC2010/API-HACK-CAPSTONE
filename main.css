@@ -14,14 +14,13 @@ html {
 
 
 }
+
 body {
     height: 100%;
     margin: 0 auto;
     padding: 0;
     background:#E1E1E1;
     overflow: auto;
-
-    
 }
 .fail-screen {
     display: block;
@@ -47,6 +46,10 @@ h1 h3 {
     font-weight: bolder;
 }
 
+.instructions {
+    color: white;
+}
+
 
 .container {
     background: linear-gradient( to bottom, rgba(0,0,0,0), rgba(0,0,0,0.7)), url(doctorbg.jpg) no-repeat;
@@ -65,7 +68,7 @@ h1 h3 {
 }
 
 #js-form-submit {
-    width: 60%;
+    width: 100%;
     text-align: center;
     height: 70%;
     
@@ -83,8 +86,6 @@ h1 h3 {
     display: flex;
     justify-content: space-around;
     flex-direction: column;
-
-    
 }
 
 .wrapper li {
@@ -97,6 +98,10 @@ h1 h3 {
 
 input {
     margin-bottom: 10px;
+}
+
+#location-city {
+    padding: 17px;
 }
 
 
@@ -116,11 +121,30 @@ input {
     
 }
 
+
+
 #submit-button {
     display: block;
     margin: 50px auto;
     padding: 20px 50px;
     cursor: pointer;
+    background-color: white;
+}
+
+#results {
+    display: flex;
+    flex-direction: column;
+}
+
+
+
+
+
+
+.doc-list {
+    list-style: none;
+    padding: 0;
+
 }
 
 
@@ -139,12 +163,15 @@ span {
     font-family: 'Heebo', sans-serif;
 }
 
-.primary-info > img {
-    float: right;
+.primary-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 .bold {
     overflow-wrap: break-word;
     word-wrap: break-word;
+    font-weight: bold;
 }
 
 

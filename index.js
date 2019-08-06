@@ -12,14 +12,40 @@ function formatQueryParams(params){
 
 };
 
+function initAutocomplete(){
+    var address = document.getElementById('location-city');
+    var options = {
+        componentRestrictions: {country:['us'], types: ['geocode'] }
+    }
+
+    var autocomplete = new google.maps.places.Autocomplete(address);
+
+    autocomplete.addListener('place_changed', function(){
+        var place = autocomplete.getPlace();
+        var latitude = place.geometry.location.lat();
+        var longitude = place.geometry.location.lng();
+        document.getElementById('lat').value = latitude;
+        document.getElementById('lng').value = longitude;
+        
+
+
+    })
+
+
+}
 
 
 
-function getDoctors(URL, condition, locationCity, locationState, apiKey){
+
+function getDoctors(URL, condition, locationCity, apiKey){
+    let lat = $('input[type=hidden][name=lat]').val();
+    let lng = $('input[type=hidden][name=lng]').val()
     
     const params = {
         query: condition,
-        location: `${locationState}-${locationCity.toLowerCase().replace(/ /g, "-")}`,
+        location: lat + ',' + lng + ',' + '100',//`${locationState}-${locationCity.toLowerCase().replace(/ /g, "-")}`,
+        user_location: lat + ',' + lng,
+        sort: 'distance-asc',
         skip: 0,
         limit: 20,
         user_key: apiKey
@@ -70,15 +96,15 @@ function displayResults(responseJson){
         
         // let specialty = responseJson.data[i].specialties;
         let specialty = responseJson.data[i].specialties.map(s => s.name).join(' | ')
-        if(responseJson.data[i].specialties.length === 0){
+        if(responseJson.data[i].specialties.length  === 0){
             specialty = 'No specialty information available.'
         }else{
             specialty 
         };
 
-        let website = responseJson.data[i].practices.map(s => s.website).join(' ');
+        let website = responseJson.data[i].practices[0].website;
 
-        if(!website){
+        if(!website || website.length === 0){
             website = 'No website available'
         };
 
@@ -87,29 +113,31 @@ function displayResults(responseJson){
         
 
         
-
+        
  
 
         
        
         
         $('#results').append(
-            `<section class="provider-list">
-                
+            `<ul class="doc-list">
+                    <li>
                     <div id="MD-card">
                         <div class="primary-info">
                             <div class="provider-image">
                                 <img src="${img}">
                             </div>
-                            <p><span class="bold">Dr.</span> ${firstName} ${lastName}</p>
+                            <p><span class="bold"><b>Dr.</b></span><b> ${firstName} ${lastName}</b></p>
                             <p><span class="bold">Address:</span> ${street}, ${city}, ${state} ${zipCode}</p>
                             <p><span class="bold">Accept new patients:</span> ${newPatient}</p>
                             <p><span class="bold">Phone number:</span> ${phone}</p>
-                            <p><span class="bold">Website:</span> ${website}</p>
-                            <p><span class="bold">Specialty:</span> ${specialty}</p>
+                            <p><span class="bold">Website:</span> <a href="${website}">${website}</a></p>
+                            <p><span class="bold">Specialties:</span> ${specialty}</p>
                         </div>
                     </div>
-            </section>`
+                    </li>
+                </ul>
+            `
         )
 
         
@@ -133,11 +161,10 @@ function showFailScreen(){
     
 };
 
-$("#submit-button").click(function() {
-    $('html, body').animate({
-        scrollTop: $("#results").offset().top
-    }, 4000);
-});
+
+
+//Place explanation paragraph under search and then add results 
+
 
 
 
@@ -149,15 +176,20 @@ function watchForm(){
    
     $('#js-form-submit').submit(event => {
         event.preventDefault();
+        
 
         $('#results').empty();
+        //$('.container').hide("slow")
+        
 
         const condition = $('#medical-issue').val();
-        const locationState = $('#location-state').val();
+        
         const locationCity = $('#location-city').val();
 
-        console.log(locationState, locationCity);
-        getDoctors(URL, condition, locationCity, locationState, apiKey)
+        $('#js-form-submit input[type="text"]').val('')
+
+        console.log(locationCity);
+        getDoctors(URL, condition, locationCity, apiKey)
     })
 };
 $(watchForm);
