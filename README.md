@@ -14,7 +14,7 @@ User can search for provider by selecting a state and entering a city.
 
 **Or**
 
-User may search narrow for specific doctors by entering a medical issue such as cold, asthma, diarrhead, etc along with city and state. <br>
+User may narrow search for specific doctors by entering a medical issue such as cold, asthma, diarrhead, etc along with city and state that will give users doctors in their area that specializes in that specific condition. <br>
 
 
 ![Conditionsearch](demogifs/ConditionCityStateSearchCapture.gif)
@@ -22,7 +22,7 @@ User may search narrow for specific doctors by entering a medical issue such as 
 If user enters invalid information or no information is found, app will return a 'No results found message' to user.
 ![Noresultsfound](demogifs/NoResultsFoundCapture.gif)
 
-### Link to live repo: https://pjc2010.github.io/API-HACK-CAPSTONE/
+### Link to live page: https://pjc2010.github.io/API-HACK-CAPSTONE/
 
 
 ## Technologies used 
