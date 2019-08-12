@@ -1,16 +1,21 @@
 'use strict'
 
+//Declaring variables for betterDoctor URL and API Key
+
 const URL = `https://api.betterdoctor.com/2016-03-01/doctors`;
 //?name=${name}&query=${illness}&location=${locationState}-${locationCity}&skip=0&limit=20&user_key=${apiKey}
 
 const apiKey = 'b4ff4e39c659e41553ab2c63a3e67558';
 
+//formatting parameters for api call 
 
 function formatQueryParams(params){
     const queryItems = Object.keys(params).map(key => `${encodeURIComponent(key)}=${encodeURIComponent(params[key])}`)
     return queryItems.join('&')
 
 };
+
+//Google Maps Autocomplete API
 
 function initAutocomplete(){
     var address = document.getElementById('location-city');
@@ -43,7 +48,7 @@ function getDoctors(URL, condition, locationCity, apiKey){
     
     const params = {
         query: condition,
-        location: lat + ',' + lng + ',' + '100',//`${locationState}-${locationCity.toLowerCase().replace(/ /g, "-")}`,
+        location: lat + ',' + lng + ',' + '100',
         user_location: lat + ',' + lng,
         sort: 'distance-asc',
         skip: 0,
@@ -52,13 +57,14 @@ function getDoctors(URL, condition, locationCity, apiKey){
     };
 
     const queryString = formatQueryParams(params)
-    console.log(queryString)
+    //console.log(queryString)
     
     const searchURL = `${URL}?${queryString}`
     console.log(searchURL)
     fetch(searchURL)
     .then(response => {
         if(response.ok){
+            $('.loading-screen').hide()
             return response.json()
         }
         throw new Error(response.statusText)
@@ -70,18 +76,14 @@ function getDoctors(URL, condition, locationCity, apiKey){
         
         $('#js-error-message').text(`Something went wrong: ${err.message}`)
     })
-    
-  
-
-    
-
-
 };
 
 
 
+
 function displayResults(responseJson){
-    console.log(responseJson);
+    
+    //console.log(responseJson);
     if(responseJson.data.length > 0){
     
     for(let i = 0; i < responseJson.data.length; i++){
@@ -109,34 +111,30 @@ function displayResults(responseJson){
         };
 
         let newPatient = (responseJson.data[i].practices[0].accepts_new_patients? "Yes": "No");
-
-        
-
-        
-        
- 
-
         
        
         
         $('#results').append(
-            `<ul class="doc-list">
-                    <li>
-                    <div id="MD-card">
-                        <div class="primary-info">
-                            <div class="provider-image">
-                                <img src="${img}">
+            `
+            <div class="doc-results">
+                <ul class="doc-list">
+                        <li>
+                        <div id="MD-card">
+                            <div class="primary-info">
+                                <div class="provider-image">
+                                    <img src="${img}">
+                                </div>
+                                <p><span class="bold"><b>Dr.</b></span><b> ${firstName} ${lastName}</b></p>
+                                <p><span class="bold">Address:</span> ${street}, ${city}, ${state} ${zipCode}</p>
+                                <p><span class="bold">Accept new patients:</span> ${newPatient}</p>
+                                <p><span class="bold">Phone number:</span> <a href="tel:${phone}">${phone}</a></p>
+                                <p><span class="bold">Website:</span> <a href="${website}">${website}</a></p>
+                                <p><span class="bold">Specialties:</span> ${specialty}</p>
                             </div>
-                            <p><span class="bold"><b>Dr.</b></span><b> ${firstName} ${lastName}</b></p>
-                            <p><span class="bold">Address:</span> ${street}, ${city}, ${state} ${zipCode}</p>
-                            <p><span class="bold">Accept new patients:</span> ${newPatient}</p>
-                            <p><span class="bold">Phone number:</span> ${phone}</p>
-                            <p><span class="bold">Website:</span> <a href="${website}">${website}</a></p>
-                            <p><span class="bold">Specialties:</span> ${specialty}</p>
                         </div>
-                    </div>
-                    </li>
-                </ul>
+                        </li>
+                    </ul>
+            </div>
             `
         )
 
@@ -162,26 +160,16 @@ function showFailScreen(){
 };
 
 
-
-//Place explanation paragraph under search and then add results 
-
-
-
-
-
-
-
-function watchForm(){
-    
+function watchForm(){  
    
     $('#js-form-submit').submit(event => {
         event.preventDefault();
+        $('.instructions').hide()
+        $('.loading-screen').show();
         
 
         $('#results').empty();
-        //$('.container').hide("slow")
         
-
         const condition = $('#medical-issue').val();
         
         const locationCity = $('#location-city').val();

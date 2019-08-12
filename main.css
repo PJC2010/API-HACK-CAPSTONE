@@ -1,7 +1,7 @@
 * {
     box-sizing: border-box;
 
-    font-family: 'Russo One', sans-serif;
+    font-family: 'Hind Madurai', sans-serif;
     
 
 }
@@ -10,7 +10,7 @@
 
 html {
     height: 100%;
-    overflow: hidden;
+    
 
 
 }
@@ -19,132 +19,118 @@ body {
     height: 100%;
     margin: 0 auto;
     padding: 0;
-    background:#E1E1E1;
-    overflow: auto;
+
 }
+
+.banner {
+    font-size: 4em;
+    background-color: rgba(185, 180, 180, 0.9);
+    color: #000000;
+    width: 90%;
+    text-align: center;
+    
+}
+
+
 .fail-screen {
     display: block;
     text-align: center;
     font-family: 'Russo One', sans-serif;
     height: 100vh;
     font-size: 50px;
-}
-
-
- .banner  {
-    background: rgba(232, 233, 235, 0.7);
-    text-align: center;
-    position: relative;
-    font-size: 20px;
-    width: 90%;
-    
-}
-
-
-h1 h3 {
-    font-family: 'Noto Sans JP', sans-serif;
-    font-weight: bolder;
-}
-
-.instructions {
     color: white;
 }
 
-
 .container {
-    background: linear-gradient( to bottom, rgba(0,0,0,0), rgba(0,0,0,0.7)), url(doctorbg.jpg) no-repeat;
     height: 100vh;
-    background-size: cover;
-    background-position: 80% 0%;
-    background-attachment: scroll;
-    margin: 0;
-    position: relative;
+    background:#E1E1E1;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: space-evenly;
+    background: linear-gradient( to bottom, rgba(0,0,0,0), rgba(0,0,0,0.7)), url(doctorbg.jpg) no-repeat;
+    width: 100%;
+    background-size: cover;
+    background-position: 80% 0%;
     
-
 }
+
+
+
+
+
+.instructions {
+    font-size: 1.6em;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: #000000;
+    margin: 30px;
+    background: rgba(185, 180, 180, 0.9);
+    padding: 20px;
+    
+}
+
+
 
 #js-form-submit {
     width: 100%;
-    text-align: center;
-    height: 70%;
-    
-    
-}
+    height: auto;
 
-
-
-
-.wrapper {
-    text-align: center;
-    margin: 0;
-    padding: 0;
-    height: 100%;
-    display: flex;
-    justify-content: space-around;
-    flex-direction: column;
-}
-
-.wrapper li {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-  
     
 }
+
 
 input {
+    padding: 13px;
     margin-bottom: 10px;
-}
-
-#location-city {
-    padding: 17px;
-}
-
-
-
-
-
-
-.wrapper li input[type='text']  {
-    padding: 17px;
-    flex: 1 0 220px;
-}
-
-#location-state {
-    flex: 1 0 220px;
-    height: 50px;
-    
+    width: 30%;
     
 }
 
+.searchBar {
+    display: flex;
+    flex-direction: row;
+    max-width: 800px;
+    align-items: center;
+    justify-content: space-evenly;
+    margin: 0 auto;
+    
 
+}
 
-#submit-button {
-    display: block;
-    margin: 50px auto;
-    padding: 20px 50px;
+#submit-button {    
+    padding: 20px;
     cursor: pointer;
-    background-color: white;
+    background-color: white; 
 }
 
 #results {
     display: flex;
     flex-direction: column;
+    width: 100%;
+    height: 50%;
+    overflow: scroll;
+    text-align: center;    
 }
 
+.doc-results {
+    background: #e6e6e6;
+    margin: 10px;
+    height: 100vh;
 
-
-
-
+}
 
 .doc-list {
     list-style: none;
-    padding: 0;
+    padding: 3px;
+    margin: 0;
 
+}
+.loading-screen {
+    display: none;
+    height: 50%;
 }
 
 
@@ -177,31 +163,35 @@ span {
 
 
 @media only screen and (max-width: 600px){
-    .container{
-        height: 100vh;
+    .searchBar{
+        height: 100%;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
     }
-    .row {
-
-    }
-
-}
-
-@media only screen and (min-width: 600px){
-
-}
-
-@media only screen and (min-width: 768px){
-   
-    .container {
-        height: 100vh;
-    }
-}
-
-@media only screen and (min-width: 992px){
     #js-form-submit {
-        width: 50%;
+        height: 50%;
     }
+    .container {
+        flex-direction: column;
+        align-items: center;
+        
+    }
+    .instructions{
+        font-size: 10px;
+    }
+    #results {
+       
+        margin: 30px;
+    }
+    input {
+        width: 75%;
+    }
+    
+    
+
 }
+
 
 
 
