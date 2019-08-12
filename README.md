@@ -2,25 +2,22 @@
 
 
 ## Purpose
-I wanted to create a web app that would allow users to search for medical providers in their area or any other city in the US.
+I wanted to create a web app that would allow users to search for medical providers in their area or any other city in the US along with a variety of medical conditions or illnesses. 
 
 ## Demo
 
-User can search for provider by selecting a state and entering a city.
+User can search for a doctor by entering a city or address (aiding by Google Maps Autcomplete Geocode API)
 
 
 
-![Cityandstatesearch](demogifs/CityStateSearchCapture.gif)
+![DoctorSearchDemo](demogifs/DoctorSearchDemo.gif)
 
 **Or**
 
-User may narrow search for specific doctors by entering a medical issue such as cold, asthma, diarrhead, etc along with city and state that will give users doctors in their area that specializes in that specific condition. <br>
 
-
-![Conditionsearch](demogifs/ConditionCityStateSearchCapture.gif)
 
 If user enters invalid information or no information is found, app will return a 'No results found message' to user.
-![Noresultsfound](demogifs/NoResultsFoundCapture.gif)
+![NoResultsFoundRevised](demogifs/NoResultsFoundRevised.gif)
 
 ### Link to live page: https://pjc2010.github.io/API-HACK-CAPSTONE/
 
@@ -32,6 +29,7 @@ If user enters invalid information or no information is found, app will return a
   <li>Javascript</li>
   <li>jQuery</li>
   <li><a href="https://developer.betterdoctor.com/">betterdoctor api</a></li>
+  <li><a href="https://developers.google.com/maps/documentation/javascript/examples/places-autocomplete">Google Maps Autocomplete API</a></li>
 </ul>
 
 ## Authors
