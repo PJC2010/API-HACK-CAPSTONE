@@ -60,7 +60,7 @@ function getDoctors(URL, condition, locationCity, apiKey){
     //console.log(queryString)
     
     const searchURL = `${URL}?${queryString}`
-    console.log(searchURL)
+    //console.log(searchURL)
     fetch(searchURL)
     .then(response => {
         if(response.ok){
