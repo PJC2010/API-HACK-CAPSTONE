@@ -17,7 +17,7 @@ User can search for a doctor by entering a city or address (aiding by Google Map
 
 
 If user enters invalid information or no information is found, app will return a 'No results found message' to user.
-![Noresultsfound](demogifs/NoResults.gif)
+![NoResultsFoundCapture](demogifs/NoResultsFoundCapture.gif)
 
 ### Link to live page: https://pjc2010.github.io/API-HACK-CAPSTONE/
 
@@ -29,6 +29,7 @@ If user enters invalid information or no information is found, app will return a
   <li>Javascript</li>
   <li>jQuery</li>
   <li><a href="https://developer.betterdoctor.com/">betterdoctor api</a></li>
+  <li><a href="https://developers.google.com/maps/documentation/javascript/examples/places-autocomplete">Google Maps Autocomplete API</a></li>
 </ul>
 
 ## Authors
