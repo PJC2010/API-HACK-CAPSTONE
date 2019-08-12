@@ -17,7 +17,7 @@ User can search for a doctor by entering a city or address (aiding by Google Map
 
 
 If user enters invalid information or no information is found, app will return a 'No results found message' to user.
-![NoResultsFoundCapture](demogifs/NoResultsFoundCapture.gif)
+![NoResultsFoundRevised](demogifs/NoResultsFoundRevised.gif)
 
 ### Link to live page: https://pjc2010.github.io/API-HACK-CAPSTONE/
 
