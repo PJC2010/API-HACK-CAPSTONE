@@ -1,56 +1,81 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Find A Doc! API</title>
-    <link href="main.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Heebo&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Hind+Madurai&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css"> 
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Find A Doc!</title>
+    <link href="main.css" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Heebo&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Hind+Madurai&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Oswald&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css"
+    />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-</head>
-<body>
-    
-    
-    
-    <main class="container"> 
-        <h1 class="banner">Find A Doc!</h1>
-        <form id="js-form-submit">
-            <div class="searchBar">
-                <input type="text" id="location-city"  required placeholder="Search by address or city">
-            
-                <input type="text" id="medical-issue" placeholder="What's bothering you? E.g: Asthma, Common cold, toothache.." autocomplete="off" required>
-            
-                <button type="submit" id="submit-button" name="button">Search</button>
-            </div>                  
-                <input type="hidden" id="lat" name="lat" value="">
-                <input type="hidden" id="lng" name="lng" value="">
-        </form>
-        
-        <div id="results">
-            <div class="instructions">
-                <h1>Find a doctor near you!</h1>
-                <h2>Enter your address or city and medical condition or illness to get started.</h2>
-                
-                
-            </div>
+  </head>
+  <body>
+    <header class="top-banner">
+      <i class="logo"><img src="stenicon.svg"/></i>
+      <h1>
+        Find A Doc!
+      </h1>
+    </header>
+    <main class="container">
+      <form id="js-form-submit">
+        <div class="searchBar">
+          <input
+            type="text"
+            id="location-city"
+            required
+            placeholder="Search by address or city"
+          />
+
+          <input
+            type="text"
+            id="medical-issue"
+            placeholder="Enter symptom or MD specialty"
+            autocomplete="off"
+            required
+          />
+
+          <button type="submit" id="submit-button" name="button">Search</button>
         </div>
-        <div class="loading-screen">
-           <h2 class="load"><img src="circles.svg" /></h2> 
+        <input type="hidden" id="lat" name="lat" value="" />
+        <input type="hidden" id="lng" name="lng" value="" />
+      </form>
+      <div id="js-error-message"></div>
+      <div class="loading-screen">
+        <h2 class="load"><img src="circles.svg" /></h2>
+      </div>
+      <div id="results">
+        <div class="instructions">
+          <h3 class="intro-text">
+            Start your physician search by entering in your address/city and
+            symptom/MD specialty.
+          </h3>
         </div>
-                   
+      </div>
     </main>
-    
-    <div id="js-error-message">
-        
-    </div>
-    
 
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAba3BnR1iNfDsJPK8Vo4HFLTTJbWHErW0&libraries=places&callback=initAutocomplete&output=json"
-        async defer></script>
-    <script src="index.js" ></script>
-</body>
-
+    <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAba3BnR1iNfDsJPK8Vo4HFLTTJbWHErW0&libraries=places&callback=initAutocomplete&output=json"
+      async
+      defer
+    ></script>
+    <script src="index.js"></script>
+  </body>
 </html>
