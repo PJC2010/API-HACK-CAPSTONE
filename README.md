@@ -17,7 +17,7 @@ User can search for a doctor by entering a city or address (aiding by Google Map
 
 
 If user enters invalid information or no information is found, app will return a 'No results found message' to user.
-![NoResultsFoundRevised](demogifs/NoResultsFoundRevised.gif)
+![NoResultsFoundDemo](demogifs/NoResultsFoundDemo.gif)
 
 ### Link to live page: https://pjc2010.github.io/Find-A-Doc/
 
