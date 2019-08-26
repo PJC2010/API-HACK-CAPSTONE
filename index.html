@@ -29,7 +29,7 @@
   </head>
   <body>
     <header class="top-banner">
-      <i class="logo"><img src="stenicon.svg"/></i>
+      <i class="logo" role="presentation"><img src="stenicon.svg"/></i>
       <h1>
         Find A Doc!
       </h1>
@@ -37,6 +37,7 @@
     <main class="container">
       <form id="js-form-submit">
         <div class="searchBar">
+          <label for="location-city">Address/City</label>
           <input
             type="text"
             id="location-city"
@@ -44,6 +45,7 @@
             placeholder="Search by address or city"
           />
 
+          <label for="medical-issue">Symptom/Specialty</label>
           <input
             type="text"
             id="medical-issue"

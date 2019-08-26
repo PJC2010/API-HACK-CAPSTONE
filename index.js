@@ -79,9 +79,7 @@ function displayResults(responseJson) {
         .filter(p => p.within_search_area)
         .map(
           p =>
-            `${p.visit_address.street}, ${p.visit_address.city}, ${
-              p.visit_address.state
-            } ${p.visit_address.zip}`
+            `${p.visit_address.street}, ${p.visit_address.city}, ${p.visit_address.state} ${p.visit_address.zip}`
         );
       const phone = responseJson.data[i].practices[0].phones[0].number;
       const distanceFromInput = responseJson.data[i].practices
@@ -100,7 +98,7 @@ function displayResults(responseJson) {
       let website = responseJson.data[i].practices[0].website;
 
       if (!website || website.length === 0) {
-        website = "No website available";
+        website = " ";
       }
 
       let newPatient = responseJson.data[i].practices[0].accepts_new_patients
@@ -112,11 +110,11 @@ function displayResults(responseJson) {
           <ul class="doc-list">
             <li>
               <div class="doc-image">
-                <img class="doc-image" src="${img}">
+                <img class="doc-image" src="${img}" alt="Dr.${firstName} ${lastName}">
               </div>
               <div class="doc-content">
-                <span class="doc-name">Dr.${firstName} ${lastName}</span>
-                <br>
+                <span class="doc-name"><h3>Dr.${firstName} ${lastName}</h3></span>
+                
                 <span>${specialty}</span>
                 <br>
                 <span><b>${distanceFromInput[0]} Miles away</b></span>
@@ -125,9 +123,9 @@ function displayResults(responseJson) {
                 <br>
                 <span>Accept new patients: ${newPatient}</span>
                 <br>
-                <span>Phone:<a href="tel:${phone}">${phone}</a></span>
+                <span>Phone:<a href="tel:${phone}"> ${phone}</a></span>
                 <br>
-                <span>Website: <a href="${website}">${website}</a></span>
+                <span>Website: <a href="${website}"> ${website}</a></span>
               </div>
             </li>
           </ul>
@@ -141,7 +139,7 @@ function displayResults(responseJson) {
 
 function showFailScreen() {
   $("#results").append(
-    `<section class="fail-screen">
+    `<section class="fail-screen" aria-live>
             <div class="fail-text">
             <p>No results found. Please try again.</p>
             </div>

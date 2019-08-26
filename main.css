@@ -19,7 +19,7 @@ body {
   align-items: center;
   text-align: center;
   justify-content: center;
-  color: #e1e1e1;
+  color: #ffffff;
   font-size: 28px;
   flex-direction: row;
 }
@@ -81,7 +81,7 @@ input {
 .searchBar {
   display: flex;
   flex-direction: row;
-  max-width: 800px;
+  max-width: 1200px;
   align-items: center;
   justify-content: space-evenly;
   margin: 0 auto;
@@ -103,7 +103,7 @@ input {
 
 .intro-text {
   font-size: 30px;
-  background-color: rgba(47, 47, 47, 0.6);
+  background-color: rgba(47, 47, 47, 0.9);
   color: #e1e1e1;
 }
 
@@ -143,7 +143,7 @@ input {
   align-content: center;
   margin-left: 20px;
   font-weight: bolder;
-
+  justify-content: space-evenly;
   font-family: "Oswald", sans-serif;
 }
 
@@ -154,10 +154,6 @@ input {
   word-wrap: break-word;
   overflow: auto;
   width: 100%;
-}
-
-.doc-name {
-  font-weight: 900;
 }
 
 .loading-screen {
@@ -204,6 +200,7 @@ input {
 
   .doc-content {
     font-size: small;
+    justify-content: ;
   }
 
   .logo {
@@ -215,7 +212,7 @@ input {
   }
 }
 
-@media only screen and (max-width: 728px) {
+@media only screen and (max-width: 830px) {
   .searchBar {
     height: 100%;
     flex-direction: column;
@@ -223,7 +220,7 @@ input {
     align-items: center;
   }
   #js-form-submit {
-    height: 50%;
+    height: 75%;
     margin: 5px;
   }
   .container {
