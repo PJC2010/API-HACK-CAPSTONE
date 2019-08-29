@@ -78,6 +78,10 @@ input {
   width: 30%;
 }
 
+label {
+  font-size: 1em;
+}
+
 .searchBar {
   display: flex;
   flex-direction: row;
@@ -110,7 +114,7 @@ input {
 #results {
   display: flex;
   flex-direction: column;
-  width: 90%;
+  max-width: 1200px;
   overflow: scroll;
   text-align: center;
   margin: 0;
@@ -147,10 +151,26 @@ input {
   font-family: "Oswald", sans-serif;
 }
 
+.doc-name {
+  font-size: 1.3em;
+}
+
+.specialty-type {
+  font-weight: bold;
+  font-size: 1.2em;
+  text-decoration: underline;
+}
+
+.distance {
+  font-size: 1.1em;
+  font-weight: bolder;
+  font-style: italic;
+}
+
 .doc-list {
   list-style: none;
   padding: 3px;
-  margin: 20px;
+  margin: 10px;
   word-wrap: break-word;
   overflow: auto;
   width: 100%;
@@ -200,7 +220,6 @@ input {
 
   .doc-content {
     font-size: small;
-    justify-content: ;
   }
 
   .logo {

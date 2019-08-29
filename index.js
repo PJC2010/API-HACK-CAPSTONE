@@ -45,7 +45,7 @@ function getDoctors(URL, condition, locationCity, apiKey) {
     user_location: lat + "," + lng,
     sort: "distance-asc",
     skip: 0,
-    limit: 20,
+    limit: 10,
     user_key: apiKey
   };
 
@@ -67,6 +67,7 @@ function getDoctors(URL, condition, locationCity, apiKey) {
       $(".loading-screen").hide();
       $("#js-error-message").text(`Something went wrong: ${err.message}`);
     });
+  console.log(searchURL);
 }
 
 function displayResults(responseJson) {
@@ -102,26 +103,26 @@ function displayResults(responseJson) {
       }
 
       let newPatient = responseJson.data[i].practices[0].accepts_new_patients
-        ? "Yes"
-        : "No";
+        ? "Accepts New Patients"
+        : "Not Accepting New Patients";
 
       $("#results").append(
         `<div class="doc-results">
           <ul class="doc-list">
             <li>
               <div class="doc-image">
-                <img class="doc-image" src="${img}" alt="Dr.${firstName} ${lastName}">
+                <img class="doc-image" src="${img}" alt="Dr. ${firstName} ${lastName}">
               </div>
               <div class="doc-content">
-                <span class="doc-name"><h3>Dr.${firstName} ${lastName}</h3></span>
+                <span class="doc-name"><h3>Dr. ${firstName} ${lastName}</h3></span>
                 
-                <span>${specialty}</span>
+                <span class="specialty-type">${specialty}</span>
                 <br>
-                <span><b>${distanceFromInput[0]} Miles away</b></span>
+                <span class="distance">${distanceFromInput[0]} Miles away</span>
                 <br>
-                <span>${practicesString[0]}</span>
+                <span class="office-location">${practicesString[0]}</span>
                 <br>
-                <span>Accept new patients: ${newPatient}</span>
+                <span id="new-patient">${newPatient}</span>
                 <br>
                 <span>Phone:<a href="tel:${phone}"> ${phone}</a></span>
                 <br>
@@ -135,6 +136,7 @@ function displayResults(responseJson) {
   } else {
     showFailScreen(responseJson);
   }
+  console.log(responseJson);
 }
 
 function showFailScreen() {
