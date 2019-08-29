@@ -67,7 +67,6 @@ function getDoctors(URL, condition, locationCity, apiKey) {
       $(".loading-screen").hide();
       $("#js-error-message").text(`Something went wrong: ${err.message}`);
     });
-  console.log(searchURL);
 }
 
 function displayResults(responseJson) {
@@ -136,7 +135,6 @@ function displayResults(responseJson) {
   } else {
     showFailScreen(responseJson);
   }
-  console.log(responseJson);
 }
 
 function showFailScreen() {
